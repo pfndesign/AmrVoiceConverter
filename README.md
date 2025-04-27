@@ -12,4 +12,5 @@ a Voice Converter between amr format and wav format , supported in Moc OS and iO
 
 ##Installation
 
-	 pod 'AmrVoiceConverter'
+	 s.dependency 'AmrVoiceConverter', :git => 'https://github.com/pfndesign/AmrVoiceConverter.git', :tag => '0.1.0'
+
