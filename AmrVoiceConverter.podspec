@@ -20,33 +20,23 @@ Pod::Spec.new do |s|
                          A VoiceConverter between AMR format and WAV format
                        DESC
 
-  s.homepage         = "https://github.com/jiehu5114/AmrVoiceConverter"
+  s.homepage         = "https://github.com/pfndesign/AmrVoiceConverter"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "胡杰" => "jiehu5114@gmail.com" }
-  s.source           = { :git => "https://github.com/jiehu5114/AmrVoiceConverter.git", :tag => "#{s.version}" }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/pfndesign/AmrVoiceConverter.git", :tag => "#{s.version}" }
 
-  s.platform     = :ios, '7.0'
-  s.requires_arc = false
+  s.platform     = :ios, '11.0'
+  s.requires_arc = true
 
-  s.source_files = ['*.{h,m}','**/*.{h,m,mm}']
-  #s.resources = ["*.{xib}","Resources/*.{png}"]
+  s.source_files = ['*.{h,m,mm}','**/*.{h,m,mm}']
+  s.public_header_files  = ['*.h','**/*.h']
   s.vendored_libraries = "**/*.a"
 
-
-  #s.resource_bundles = {
-  #  'SJAVKit' => ['Resources/*.png’,’*.{xib}’]
-  #}
-
-  #s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  #依赖系统库
-  #s.frameworks = 'UIKit','AVFoundation'
-
-  #依赖第三方库
-  #s.dependency 'AFNetworking'
-  #s.dependency 'SCRecorder'
-
-  # s.dependency 'AFNetworking', '~> 2.3'
+ s.pod_target_xcconfig = {
+    'DEFINES_MODULE' => 'YES',
+    'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
+    'CLANG_CXX_LANGUAGE_STANDARD' => 'c++11',
+    'OTHER_CPLUSPLUSFLAGS' => '-std=c++11'
+  }
 end
