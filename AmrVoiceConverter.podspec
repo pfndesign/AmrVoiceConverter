@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = false
 
-  s.source_files = ['*.{h,m}','**/*.{h,m}']
+  s.source_files = ['*.{h,m}','**/*.{h,m,mm}']
   #s.resources = ["*.{xib}","Resources/*.{png}"]
   s.vendored_libraries = "**/*.a"
 
