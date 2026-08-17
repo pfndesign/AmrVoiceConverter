@@ -1,9 +1,8 @@
 
 
 #import "VoiceConverter.h"
-#import "interf_dec.h"
-#import "dec_if.h"
-#import "interf_enc.h"
+#import "opencore_amrnb/interf_dec.h"
+#import "opencore_amrnb/interf_enc.h"
 #import "amrFileCodec.h"
 
 @implementation VoiceConverter

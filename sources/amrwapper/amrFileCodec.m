@@ -52,7 +52,7 @@ NSData * convertAndroid3GP2AMR(NSData *data) {
     
     int remainSize  = 0;
     int count   = 0;
-    int dataLenght  = data.length;
+    NSUInteger dataLenght  = data.length;
     
     do {
         count += size;
@@ -78,7 +78,7 @@ NSData * convertAndroid3GP2AMR(NSData *data) {
         
         int fullAmrDataLength = 6 + rawAmrDataLength; // cong them kich thuoc cho AMR_MAGIC_HEADER
         
-        amrData = [[[NSMutableData alloc] initWithCapacity:fullAmrDataLength] autorelease];
+        amrData = [[NSMutableData alloc] initWithCapacity:fullAmrDataLength];
         [amrData appendBytes:AMR_MAGIC_HEADER length:6];
         [amrData appendBytes:bis length:rawAmrDataLength];
     }
@@ -346,11 +346,10 @@ NSData* DecodeAMRToWAVE(NSData* data) {
 	//fpwave = fopen([docFilePath cStringUsingEncoding:NSASCIIStringEncoding], "r+");
     //if (!bErr) {
     
-    NSMutableData *out = [[[NSMutableData alloc]init] autorelease];
+    NSMutableData *out = [[NSMutableData alloc]init];
 	WriteWAVEHeader(out, nFrameCount);
     [out appendData:fpwave];
 	//fclose(fpwave);
-    [fpwave release];
 	
 	return out;
     //}
@@ -457,7 +456,7 @@ NSData* EncodePCMToAMR(char* data, int maxLen,int nChannels, int nBitsPerSample)
 	/* bitstream filetype */
 	unsigned char amrFrame[MAX_AMR_FRAME_SIZE];
     
-    NSMutableData* out = [[[NSMutableData alloc]init] autorelease];
+    NSMutableData* out = [[NSMutableData alloc]init];
 	/* write magic number to indicate single channel AMR file storage format */
 	//bytes = fwrite(AMR_MAGIC_NUMBER, sizeof(char), strlen(AMR_MAGIC_NUMBER), fpamr);
     [out appendBytes:AMR_MAGIC_NUMBER length:strlen(AMR_MAGIC_NUMBER)];
